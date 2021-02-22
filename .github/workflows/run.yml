@@ -12,7 +12,7 @@
 #
 ######  end 说明  ######
 
-name: Run it on action
+name: Freenon Auto-Renewal
 
 on:
   push:
@@ -23,7 +23,7 @@ on:
 jobs:
   run-it:
     runs-on: ubuntu-18.04
-    name: Run it on action
+    name: Freenon Auto-Renewal Actiont
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
@@ -50,6 +50,6 @@ jobs:
           if [ '${{ secrets.TELEGRAM_BOT_ENABLE }}' != '' ]; then sed -i "s/^TELEGRAM_BOT_ENABLE=.*$/TELEGRAM_BOT_ENABLE='${{ secrets.TELEGRAM_BOT_ENABLE }}'/" .env; fi
           if [ '${{ secrets.NOTICE_FREQ }}' != '' ]; then sed -i "s/^NOTICE_FREQ=.*$/NOTICE_FREQ='${{ secrets.NOTICE_FREQ }}'/" .env; fi
           sed -i "s/^ON_GITHUB_ACTIONS=.*$/ON_GITHUB_ACTIONS=true/" .env
-      - name: Run
+      - name: Run Auto Renewal
         run: |
           php run
